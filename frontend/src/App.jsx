@@ -30,12 +30,12 @@ class ApiClient {
       
       const data = await res.json();
       if (!res.ok) {
-          throw new Error(data.error || 'API Error');
-          return;
+          throw new Error(data.error || data.error || 'Something went wrong');
       }
       return data;
     } catch (err) {
       console.warn('Backend not reachable', endpoint, err.message);
+      throw err;
     }
   }
 
@@ -317,6 +317,7 @@ const Auth = ({ navigate }) => {
       if (!isLogin) {
         // Handle Registration
         const res = await api.register(name, email, password);
+        
         showToast(res.message, 'success');
         setIsLogin(true); // Switch to login after successful register
         setPassword('');
