@@ -6,9 +6,10 @@ import {
 } from 'lucide-react';
 import {logo, items} from './assets/assets.js';
 
+
 class ApiClient {
   constructor() {
-    this.baseUrl = 'http://localhost:5000/api';
+    this.baseUrl = 'https://darkness-cosmos-encourage.ngrok-free.dev/api';
     this.delay = (ms) => new Promise(res => setTimeout(res, ms)); 
   }
 
@@ -18,7 +19,9 @@ class ApiClient {
 
   async fetchWithFallback(endpoint, method = 'GET', body = null) {
     try {
-      const headers = { 'Content-Type': 'application/json' };
+      const headers = { 'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true'
+       };
       const token = this.getToken();
       if (token) headers['Authorization'] = `Bearer ${token}`;
 
@@ -475,7 +478,7 @@ const Navbar = ({ navigate, currentRoute }) => {
             <button 
               key={link.path}
               onClick={() => navigate(link.path)}
-              className={`font-medium transition-colors ${currentRoute === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`}
+              className={`font-medium cursor-pointer transition-colors ${currentRoute === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`}
             >
               {link.name}
             </button>
