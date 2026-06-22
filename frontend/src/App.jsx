@@ -255,15 +255,15 @@ const Booking = ({ navigate }) => {
             <p className="text-gray-600 dark:text-gray-400 mb-8">
               No consultation fee required, your appointment will be automatically locked and I serve in First Come First Serve (FCFS) basis.
             </p>
-            <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800 mb-8 inline-block text-left">
+            {/* <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800 mb-8 inline-block text-left">
                <p className="text-green-800 dark:text-green-300 font-mono font-bold text-lg mb-2">M-Pesa STK Push</p>
                <Input label="Confirm Phone Number" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
-            </div>
+            </div> */}
             <div className="flex gap-4 justify-center">
-               <Button variant="outline" onClick={() => navigate('home')}>Skip for now</Button>
-               <Button onClick={handlePayment} disabled={loading} className="bg-green-600 hover:bg-green-700">
+               <Button variant="outline" onClick={() => navigate('home')}>Done</Button>
+               {/* <Button onClick={handlePayment} disabled={loading} className="bg-green-600 hover:bg-green-700">
                  {loading ? 'Processing...' : 'Pay KSH 500'}
-               </Button>
+               </Button> */}
             </div>
           </div>
         )}
