@@ -292,7 +292,7 @@ const Store = () => {
               <h3 className="text-xl font-bold dark:text-white mb-2">{item.name}</h3>
               <p className="text-lg font-mono text-blue-600 dark:text-blue-400 font-bold mb-4">{item.price}</p>
               <Button onClick={() => {
-                const message = `Hi Brian, I was browsing your website and I'd like to order: \n\n* Item: ${item.name} \n* Price: ${item.price} \n\n`
+                const message = `Hi Brian, I was browsing your website and I'd like to order: \n\n*Item: ${item.name}* \n*Price: ${item.price}* \n\n`
                 window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank', 'noopener', 'noreferrer')
               }} className="mt-auto w-full">Order via WhatsApp</Button>
             </div>
