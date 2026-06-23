@@ -285,8 +285,8 @@ const Store = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {items.map(item => (
           <Card key={item.id} className="overflow-hidden p-0 flex flex-col">
-            <div className={`h-48 w-full bg-${item.img}-500 dark:bg-${item.img}-800 opacity-80 flex items-center justify-center`}>
-              <img src={item.img} alt="" />
+            <div style={{backgroundImage: `url(${item.img})`}} className={`h-48 w-full flex items-center justify-center bg-cover bg-center bg-no-repeat rounded`}>
+              {/* <img className="rounded" src={item.img} alt="" /> */}
             </div>
             <div className="p-6 flex flex-col flex-1">
               <h3 className="text-xl font-bold dark:text-white mb-2">{item.name}</h3>
