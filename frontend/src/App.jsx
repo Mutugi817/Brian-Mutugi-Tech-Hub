@@ -275,10 +275,6 @@ const Booking = ({ navigate }) => {
 const Store = () => {
   const phoneNumber = '254115793480'
   const message = ""
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}` 
-  function handleClick() {
-    window.open(whatsappUrl, '_blank','noopener, noreferrer')
-  }
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-20 min-h-screen animate-fade-in">
@@ -295,7 +291,10 @@ const Store = () => {
             <div className="p-6 flex flex-col flex-1">
               <h3 className="text-xl font-bold dark:text-white mb-2">{item.name}</h3>
               <p className="text-lg font-mono text-blue-600 dark:text-blue-400 font-bold mb-4">{item.price}</p>
-              <Button onClick={handleClick} className="mt-auto w-full">Order via WhatsApp</Button>
+              <Button onClick={() => {
+                const message = `Hi Brian, I was browsing your website and I'd like to order: \n\n* Item: ${item.name} \n* Price: ${item.price} \n\n`
+                window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank', 'noopener', 'noreferrer')
+              }} className="mt-auto w-full">Order via WhatsApp</Button>
             </div>
           </Card>
         ))}
