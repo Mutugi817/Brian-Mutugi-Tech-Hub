@@ -273,11 +273,12 @@ const Booking = ({ navigate }) => {
 };
 
 const Store = () => {
-  // const items = [
-  //   { id: 1, name: 'African Bracelet', price: 'KSH 450', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTR4LzzWSooXqGLGn55jASIHDkOfXu-Tl-8w&s' },
-  //   { id: 2, name: 'Custom Beaded Bracelet', price: 'KSH 250', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzeoAeZB753VlJLCTrscHwhOB55rTZWaGPNQ&s' },
-  //   { id: 3, name: 'Kenyan Flag Theme Bracelet', price: 'KSH 300', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7dIaetE_NQsSjzkdiyowZ1cOR7vq5iKayA&s' },
-  // ];
+  const phoneNumber = '254115793480'
+  const message = ""
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}` 
+  function handleClick() {
+    window.open(whatsappUrl, '_blank','noopener, noreferrer')
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-20 min-h-screen animate-fade-in">
@@ -294,7 +295,7 @@ const Store = () => {
             <div className="p-6 flex flex-col flex-1">
               <h3 className="text-xl font-bold dark:text-white mb-2">{item.name}</h3>
               <p className="text-lg font-mono text-blue-600 dark:text-blue-400 font-bold mb-4">{item.price}</p>
-              <Button className="mt-auto w-full">Order via WhatsApp</Button>
+              <Button onClick={handleClick} className="mt-auto w-full">Order via WhatsApp</Button>
             </div>
           </Card>
         ))}
